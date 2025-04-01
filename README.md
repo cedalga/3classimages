@@ -33,3 +33,6 @@ Le modèle est basé sur l'architecture ResNet50 pré-entraînée sur ImageNet, 
 ## Dockerisation
 
 Un Dockerfile est inclus pour dockeriser l'application. Vous pouvez construire et exécuter l'image Docker avec les commandes suivantes :
+
+1. docker build -t sport-image-classifier .
+2. docker run -p 8501:8501 sport-image-classifier
