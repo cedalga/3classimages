@@ -5,6 +5,49 @@ from torchvision import transforms, models
 from PIL import Image
 import joblib
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f0f2f6; /* Couleur de fond */
+    }
+    .stHeader {
+        background-color: #4682B4; /* Couleur de l'en-tête */
+        color: #ffffff; /* Couleur du texte de l'en-tête */
+        padding: 20px;
+        text-align: center;
+    }
+    .stTitle {
+        font-size: 3em;
+        font-weight: bold;
+    }
+    .stFileUploader {
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .stButton {
+        background-color: #008CBA; /* Couleur du bouton */
+        color: #005F6B;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown('<div class="stHeader"><h1 class="stTitle">Classification d\'images sportives</h1></div>', unsafe_allow_html=True)
+
+
 # Charger le modèle
 class CustomResNet50(nn.Module):
     def __init__(self, dropout_prob=0.5):
@@ -36,7 +79,6 @@ transform = transforms.Compose([
 ])
 
 # Interface Streamlit
-st.title("Classification d'images sportives")
 uploaded_file = st.file_uploader("Choisissez une image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
